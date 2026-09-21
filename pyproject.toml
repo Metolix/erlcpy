@@ -1,0 +1,33 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "erlcpy"
+version = "1.0.0"
+description = "A modern Python wrapper for the ER:LC Private Server API."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { file = "LICENSE" }
+authors = [{ name = "Sidhak Singh" }]
+dependencies = ["httpx>=0.27,<1"]
+
+[project.optional-dependencies]
+webhooks = ["cryptography>=42"]
+dev = ["cryptography>=42", "pytest>=8", "pytest-asyncio>=0.23", "respx>=0.21", "ruff>=0.6"]
+
+[project.urls]
+Documentation = "https://apidocs.erlc.gg/"
+Repository = "https://github.com/Metolix/erlcpy"
+Issues = "https://github.com/Metolix/erlcpy/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/erlcpy"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
