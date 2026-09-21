@@ -1,6 +1,6 @@
 import asyncio
 
-from erlcpy import AsyncClient
+from prcpy import AsyncClient
 
 
 async def main() -> None:

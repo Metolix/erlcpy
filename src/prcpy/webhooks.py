@@ -33,19 +33,11 @@ def _load_public_key(value: str):
     raise WebhookVerificationError("Invalid Ed25519 public key.")
 
 
-def verify_signature(
-    timestamp: str,
-    signature: str,
-    body: bytes,
-    *,
-    public_key: str,
-) -> bool:
+def verify_signature(timestamp: str, signature: str, body: bytes, *, public_key: str) -> bool:
     try:
         from cryptography.exceptions import InvalidSignature
     except ImportError as exc:
-        raise RuntimeError(
-            'Install "erlcpy[webhooks]" to verify webhook signatures.'
-        ) from exc
+        raise RuntimeError('Install "prcpy-erlc[webhooks]" to verify webhook signatures.') from exc
 
     try:
         signature_bytes = bytes.fromhex(signature)

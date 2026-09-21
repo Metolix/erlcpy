@@ -1,4 +1,4 @@
-from erlcpy import Client
+from prcpy import Client
 
 with Client.from_env() as client:
     server = client.get_server(players=True, staff=True)

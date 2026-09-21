@@ -16,7 +16,7 @@ assignees: ""
 
 ## Environment
 
-- erlcpy version:
+- prcpy-erlc version:
 - Python version:
 - OS:
 

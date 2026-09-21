@@ -1,6 +1,6 @@
 # Security
 
-Security issues in erlcpy should be reported privately. Please do not open a public issue for a vulnerability before the maintainer has had a chance to investigate it.
+Security issues in prcpy should be reported privately. Please do not open a public issue for a vulnerability before the maintainer has had a chance to investigate it.
 
 ## Reporting a vulnerability
 
@@ -31,8 +31,6 @@ Recommended practices:
 - Rotate credentials if they may have been exposed.
 - Give deployed applications only the credentials and permissions they actually need.
 
-The included `.env.example` contains variable names only. It must never contain real credentials.
-
 ## Webhook verification
 
 Applications receiving ER:LC webhooks should verify signatures before processing an event.
@@ -55,7 +53,7 @@ Tests should use fake credentials and synthetic server data.
 
 ## Scope
 
-This policy covers the erlcpy package and the repository's maintained code, tests, examples, documentation, and CI configuration.
+This policy covers the prcpy package and the repository's maintained code, tests, examples, documentation, and CI configuration.
 
 Vulnerabilities in ER:LC itself, Discord, Roblox, GitHub, or other external services should be reported to the relevant service rather than through this repository.
 
@@ -63,4 +61,4 @@ Vulnerabilities in ER:LC itself, Discord, Roblox, GitHub, or other external serv
 
 Please allow reasonable time for investigation and remediation before publicly disclosing a vulnerability. Security fixes may be released before detailed technical information is published.
 
-Thank you for helping keep erlcpy and projects built with it secure.
+Thank you for helping keep prcpy and projects built with it secure.

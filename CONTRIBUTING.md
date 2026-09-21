@@ -1,8 +1,8 @@
 # Contributing
 
-Thanks for contributing to erlcpy.
+Thanks for contributing to prcpy.
 
-erlcpy is a small, typed Python client for the ER:LC Private Server API. The project aims to keep its public API predictable, its dependencies small, and its implementation easy to maintain.
+prcpy is a small, typed Python client for the ER:LC Private Server API. The project aims to keep its public API predictable, its dependencies small, and its implementation easy to maintain.
 
 ## Before you start
 
@@ -12,7 +12,7 @@ Please search existing issues and pull requests before opening a new one.
 
 ## Development setup
 
-erlcpy supports Python 3.10 and newer.
+prcpy supports Python 3.10 and newer.
 
 ```bash
 python -m venv .venv
@@ -43,14 +43,14 @@ Run both commands before opening a pull request. Changes to webhook verification
 
 ## Project structure
 ```text
-src/erlcpy/       Package source
-tests/             Test suite
-examples/          Usage examples
-docs/              API and design documentation
-.github/           CI and repository templates
+src/prcpy/       Package source
+tests/            Test suite
+examples/         Usage examples
+docs/             API and design documentation
+.github/          CI and repository templates
 ```
 
-Keep implementation code in `src/erlcpy`. Avoid adding scripts or files without a clear maintenance or user-facing purpose.
+Keep implementation code in `src/prcpy`. Avoid adding scripts or files without a clear maintenance or user-facing purpose.
 
 ## Code style
 - Follow the existing project structure.

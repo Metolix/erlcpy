@@ -1,6 +1,6 @@
 # Design notes
 
-erlcpy keeps the public API small.
+prcpy keeps the public API small.
 
 ## Typed models
 

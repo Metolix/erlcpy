@@ -3,7 +3,7 @@ requires = ["hatchling>=1.25"]
 build-backend = "hatchling.build"
 
 [project]
-name = "erlcpy"
+name = "prcpy-erlc"
 version = "0.1.0"
 description = "A typed Python client for the ER:LC Private Server API."
 readme = "README.md"
@@ -42,7 +42,7 @@ Repository = "https://github.com/Metolix/erlcpy"
 Issues = "https://github.com/Metolix/erlcpy/issues"
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/erlcpy"]
+packages = ["src/prcpy"]
 
 [tool.ruff]
 line-length = 100

@@ -1,10 +1,10 @@
-# erlcpy
+# prcpy
 
 A typed Python client for the ER:LC Private Server API.
 
-erlcpy provides synchronous and asynchronous clients, typed response models, rate-limit metadata, structured exceptions, webhook helpers, and a low-level request interface for endpoints that are added to the API later.
+prcpy provides synchronous and asynchronous clients, typed response models, rate-limit metadata, structured exceptions, webhook helpers, and a low-level request interface for endpoints that are added to the API later.
 
-> erlcpy is an independent open-source project and is not affiliated with or endorsed by ER:LC or PRC.
+> prcpy is an independent open-source project and is not affiliated with or endorsed by ER:LC or PRC.
 
 ## Requirements
 
@@ -15,19 +15,19 @@ erlcpy provides synchronous and asynchronous clients, typed response models, rat
 ## Installation
 
 ```bash
-pip install erlcpy
+pip install prcpy-erlc
 ```
 
 For webhook signature verification:
 
 ```bash
-pip install "erlcpy[webhooks]"
+pip install "prcpy-erlc[webhooks]"
 ```
 
 ## Quick start
 
 ```python
-from erlcpy import Client
+from prcpy import Client
 
 with Client("your-server-key") as client:
     server = client.get_server(players=True)
@@ -42,7 +42,7 @@ with Client("your-server-key") as client:
 ## Async
 
 ```python
-from erlcpy import AsyncClient
+from prcpy import AsyncClient
 
 async with AsyncClient("your-server-key") as client:
     server = await client.get_server(players=True)
@@ -91,11 +91,11 @@ bans = client.get_bans()
 ## Commands
 
 ```python
-result = client.send_command(":h Hello from erlcpy")
+result = client.send_command(":h Hello from prcpy")
 print(result.message)
 ```
 
-The API documents a `commandId` on command failures. erlcpy exposes it as `CommandError.command_id` or `ServerOfflineError.command_id` when supplied by the API.
+The API documents a `commandId` on command failures. prcpy exposes it as `CommandError.command_id` or `ServerOfflineError.command_id` when supplied by the API.
 
 ## Authentication
 
@@ -134,7 +134,7 @@ print(client.rate_limit)
 
 A 429 response raises `RateLimitError` with `retry_after` when the server provides a `Retry-After` header.
 
-erlcpy does not silently retry commands. This avoids accidentally executing an in-game command more than once.
+prcpy does not silently retry commands. This avoids accidentally executing an in-game command more than once.
 
 ## Raw API access
 
@@ -146,10 +146,10 @@ data = client.request("GET", "/v2/server", params={"Players": "true"})
 
 ## Webhooks
 
-erlcpy includes a small helper for Ed25519 webhook verification:
+prcpy includes a small helper for Ed25519 webhook verification:
 
 ```python
-from erlcpy.webhooks import verify_signature
+from prcpy.webhooks import verify_signature
 
 verify_signature(
     timestamp=request.headers["X-Signature-Timestamp"],
@@ -172,10 +172,10 @@ pytest
 ## Project structure
 
 ```text
-erlcpy/
+prcpy/
 ├── docs/
 ├── examples/
-├── src/erlcpy/
+├── src/prcpy/
 │   ├── client.py
 │   ├── errors.py
 │   ├── models.py
@@ -192,7 +192,3 @@ erlcpy/
 ## License
 
 MIT
-
-
-### Thanks
-Thanks to Copilot for fixing the CI and writing the MD files
