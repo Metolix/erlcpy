@@ -192,3 +192,6 @@ prcpy/
 ## License
 
 MIT
+
+## Thanks
+Thanks to Copilot for fixing the CI (and writing the MD files...)
