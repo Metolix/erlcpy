@@ -84,7 +84,6 @@ queue = client.get_queue()
 kill_logs = client.get_kill_logs()
 command_logs = client.get_command_logs()
 mod_calls = client.get_mod_calls()
-emergency_calls = client.get_emergency_calls()
 vehicles = client.get_vehicles()
 bans = client.get_bans()
 ```
@@ -129,7 +128,7 @@ Never commit keys to source control.
 The client reads the API's `X-RateLimit-Bucket`, `X-RateLimit-Limit`, `X-RateLimit-Remaining`, and `X-RateLimit-Reset` response headers.
 
 ```python
-response = client.get_server()
+client.get_server()
 print(client.rate_limit)
 ```
 
@@ -144,8 +143,6 @@ The typed methods cover the documented API, but the API can grow independently o
 ```python
 data = client.request("GET", "/v2/server", params={"Players": "true"})
 ```
-
-Set `parse=False` on typed methods when the raw response is required.
 
 ## Webhooks
 

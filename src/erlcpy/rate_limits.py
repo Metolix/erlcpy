@@ -13,6 +13,7 @@ class RateLimitInfo:
     @classmethod
     def from_headers(cls, headers: object) -> "RateLimitInfo":
         get = getattr(headers, "get")
+
         def integer(name: str) -> int | None:
             value = get(name)
             if value is None:

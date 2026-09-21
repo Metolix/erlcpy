@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import os
-from collections.abc import Iterable
 from typing import Any
 
 import httpx
@@ -17,7 +16,6 @@ from .errors import (
 from .models import (
     CommandLog,
     CommandResult,
-    EmergencyCall,
     JoinLog,
     KillLog,
     ModCall,
@@ -41,6 +39,7 @@ _INCLUDE_MAP = {
     "emergency_calls": "EmergencyCalls",
     "vehicles": "Vehicles",
 }
+
 
 class _ClientBase:
     def __init__(
