@@ -25,7 +25,7 @@ class Location(Model):
     building_number: str | None = None
 
     @classmethod
-    def from_api(cls, data: dict[str, Any]) -> "Location":
+    def from_api(cls, data: dict[str, Any]) -> Location:
         return cls(
             x=data.get("LocationX"),
             z=data.get("LocationZ"),
@@ -51,7 +51,7 @@ class Player(Model):
         return self.wanted_stars > 0
 
     @classmethod
-    def from_api(cls, data: dict[str, Any]) -> "Player":
+    def from_api(cls, data: dict[str, Any]) -> Player:
         value = data.get("Player", "")
         username, separator, identifier = value.partition(":")
         try:
@@ -79,7 +79,7 @@ class Staff(Model):
     helpers: dict[str, str] = field(default_factory=dict)
 
     @classmethod
-    def from_api(cls, data: dict[str, Any]) -> "Staff":
+    def from_api(cls, data: dict[str, Any]) -> Staff:
         return cls(
             co_owner_ids=data.get("CoOwners", []),
             admins=data.get("Admins", {}),
@@ -96,7 +96,7 @@ class JoinLog(Model):
     player: str = ""
 
     @classmethod
-    def from_api(cls, data: dict[str, Any]) -> "JoinLog":
+    def from_api(cls, data: dict[str, Any]) -> JoinLog:
         return cls(
             joined=data.get("Join", False),
             timestamp=data.get("Timestamp", 0),
@@ -112,7 +112,7 @@ class KillLog(Model):
     killer: str = ""
 
     @classmethod
-    def from_api(cls, data: dict[str, Any]) -> "KillLog":
+    def from_api(cls, data: dict[str, Any]) -> KillLog:
         return cls(
             killed=data.get("Killed", ""),
             timestamp=data.get("Timestamp", 0),
@@ -128,7 +128,7 @@ class CommandLog(Model):
     command: str = ""
 
     @classmethod
-    def from_api(cls, data: dict[str, Any]) -> "CommandLog":
+    def from_api(cls, data: dict[str, Any]) -> CommandLog:
         return cls(
             player=data.get("Player", ""),
             timestamp=data.get("Timestamp", 0),
@@ -144,7 +144,7 @@ class ModCall(Model):
     timestamp: int = 0
 
     @classmethod
-    def from_api(cls, data: dict[str, Any]) -> "ModCall":
+    def from_api(cls, data: dict[str, Any]) -> ModCall:
         return cls(
             caller=data.get("Caller", ""),
             moderator=data.get("Moderator"),
@@ -165,7 +165,7 @@ class EmergencyCall(Model):
     position_descriptor: str = ""
 
     @classmethod
-    def from_api(cls, data: dict[str, Any]) -> "EmergencyCall":
+    def from_api(cls, data: dict[str, Any]) -> EmergencyCall:
         position = data.get("Position")
         coordinates = (
             (float(position[0]), float(position[1]))
@@ -195,7 +195,7 @@ class Vehicle(Model):
     color_name: str | None = None
 
     @classmethod
-    def from_api(cls, data: dict[str, Any]) -> "Vehicle":
+    def from_api(cls, data: dict[str, Any]) -> Vehicle:
         return cls(
             name=data.get("Name", ""),
             owner=data.get("Owner", ""),
@@ -228,7 +228,7 @@ class Server(Model):
     vehicles: list[Vehicle] | None = None
 
     @classmethod
-    def from_api(cls, data: dict[str, Any]) -> "Server":
+    def from_api(cls, data: dict[str, Any]) -> Server:
         return cls(
             name=data.get("Name", ""),
             owner_id=data.get("OwnerId", 0),
@@ -257,7 +257,7 @@ class CommandResult(Model):
     command_id: str | None = None
 
     @classmethod
-    def from_api(cls, data: dict[str, Any]) -> "CommandResult":
+    def from_api(cls, data: dict[str, Any]) -> CommandResult:
         return cls(
             message=data.get("message", ""),
             command_id=data.get("commandId"),

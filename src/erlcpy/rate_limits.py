@@ -11,8 +11,8 @@ class RateLimitInfo:
     reset: int | None = None
 
     @classmethod
-    def from_headers(cls, headers: object) -> "RateLimitInfo":
-        get = getattr(headers, "get")
+    def from_headers(cls, headers: object) -> RateLimitInfo:
+        get = headers.get
 
         def integer(name: str) -> int | None:
             value = get(name)
