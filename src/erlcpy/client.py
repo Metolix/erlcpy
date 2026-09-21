@@ -1,9 +1,12 @@
 from __future__ import annotations
 
 import os
-from typing import Any
+from typing import TYPE_CHECKING, Any
 
 import httpx
+
+if TYPE_CHECKING:
+    from typing_extensions import Self
 
 from .errors import (
     APIError,
@@ -159,10 +162,10 @@ class Client(_ClientBase):
     def close(self) -> None:
         self._http.close()
 
-    def __enter__(self) -> "Client":
+    def __enter__(self) -> Self:
         return self
 
-    def __exit__(self, *_: Any) -> None:
+    def __exit__(self, *_: object) -> None:
         self.close()
 
     def request(self, method: str, path: str, **kwargs: Any) -> Any:
@@ -245,10 +248,10 @@ class AsyncClient(_ClientBase):
     async def aclose(self) -> None:
         await self._http.aclose()
 
-    async def __aenter__(self) -> "AsyncClient":
+    async def __aenter__(self) -> Self:
         return self
 
-    async def __aexit__(self, *_: Any) -> None:
+    async def __aexit__(self, *_: object) -> None:
         await self.aclose()
 
     async def request(self, method: str, path: str, **kwargs: Any) -> Any:

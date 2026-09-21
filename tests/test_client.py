@@ -1,6 +1,6 @@
 import httpx
-import respx
 import pytest
+import respx
 
 from erlcpy import AuthenticationError, Client, RateLimitError
 
@@ -33,9 +33,8 @@ def test_authentication_error() -> None:
     respx.get("https://api.erlc.gg/v2/server").mock(
         return_value=httpx.Response(403, json={"message": "Unauthorized"})
     )
-    with Client("secret") as client:
-        with pytest.raises(AuthenticationError) as error:
-            client.get_server()
+    with Client("secret") as client, pytest.raises(AuthenticationError) as error:
+        client.get_server()
     assert error.value.status_code == 403
 
 
@@ -69,7 +68,6 @@ def test_rate_limit_error() -> None:
             json={"message": "Too many requests"},
         )
     )
-    with Client("secret") as client:
-        with pytest.raises(RateLimitError) as error:
-            client.get_server()
+    with Client("secret") as client, pytest.raises(RateLimitError) as error:
+        client.get_server()
     assert error.value.retry_after == 2
